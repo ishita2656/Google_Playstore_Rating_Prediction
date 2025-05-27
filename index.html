@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Playstore App Rating Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Google Playstore App Rating Predictor</h1>
+        <form action="/" method="POST">
+            <label>Total Reviews</label>
+            <input type="number" name="reviews" placeholder="Enter total reviews" required>
+            
+            <label>App Size (MB)</label>
+            <input type="number" step="0.01" name="size" placeholder="Enter app size in MB" required>
+            
+            <label>Price ($)</label>
+            <input type="number" step="0.01" name="price" placeholder="Enter price" required>
+            
+            <label>Content Rating</label>
+            <select name="content_rating">
+                <option value="Everyone">Everyone</option>
+                <option value="Teen">Teen</option>
+                <option value="Everyone 10+">Everyone 10+</option>
+                <option value="Mature 17+">Mature 17+</option>
+                <option value="Adults only 18+">Adults only 18+</option>
+                <option value="Unrated">Unrated</option>
+            </select>
+            
+            <button type="submit">Predict Rating</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>Predicted Rating: {{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

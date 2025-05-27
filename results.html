@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rating Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container result">
+        <div class="result-card">
+            <h2>App Rating Prediction</h2>
+            <div class="rating-box {{ 'high' if rating == 'High' else 'medium' if rating == 'Medium' else 'low' }}">
+                <p class="rating">{{ rating }}</p>
+            </div>
+            <div class="details">
+                <p><strong>Total Reviews:</strong> {{ reviews }}</p>
+                <p><strong>App Size:</strong> {{ size }} MB</p>
+                <p><strong>Price:</strong> ${{ price }}</p>
+                <p><strong>Content Rating:</strong> {{ content_rating }}</p>
+            </div>
+            <a href="/" class="back-button">🔙 Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
